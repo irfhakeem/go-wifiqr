@@ -13,7 +13,7 @@ func ParseCommand() {
 	allFlag := flag.Bool("a", false, "Generate QR for all saved WiFi profiles")
 	findFlag := flag.String("f", "", "Generate QR for specific SSID")
 	currentFlag := flag.Bool("c", false, "Generate QR for currently connected WiFi")
-	testFlag := flag.Bool("t", false, "Test Current Connection")
+	testFlag := flag.Bool("t", false, "Speedtest for current connected WiFi")
 	helpFlag := flag.Bool("h", false, "Show help")
 
 	flag.Parse()
@@ -23,6 +23,7 @@ func ParseCommand() {
 		fmt.Println("  wifiqr -a           Generate QR for all saved WiFi profiles")
 		fmt.Println("  wifiqr -f <SSID>    Generate QR for specific SSID")
 		fmt.Println("  wifiqr -c           Generate QR for current connected WiFi")
+		fmt.Println("  wifiqr -t           Speedtest for current connected WiFi")
 		fmt.Println("  wifiqr -h           Show help")
 		return
 	}
