@@ -4,7 +4,6 @@ import (
 	"flag"
 	"fmt"
 	"go-wifi-qr/internal/qr"
-	"go-wifi-qr/internal/utils"
 	"go-wifi-qr/internal/wifi"
 	"os"
 )
@@ -42,7 +41,7 @@ func ParseCommand() {
 		}
 		qr.CreateQR(ssid)
 	case *testFlag:
-		utils.TestConnection()
+		wifi.TestConnection()
 	default:
 		fmt.Println("Invalid option. Use -h for help.")
 	}
