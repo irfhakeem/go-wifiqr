@@ -4,6 +4,7 @@ import (
 	"flag"
 	"fmt"
 	"go-wifi-qr/internal/qr"
+	"go-wifi-qr/internal/utils"
 	"go-wifi-qr/internal/wifi"
 	"os"
 )
@@ -12,6 +13,7 @@ func ParseCommand() {
 	allFlag := flag.Bool("a", false, "Generate QR for all saved WiFi profiles")
 	findFlag := flag.String("f", "", "Generate QR for specific SSID")
 	currentFlag := flag.Bool("c", false, "Generate QR for currently connected WiFi")
+	testFlag := flag.Bool("t", false, "Test Current Connection")
 	helpFlag := flag.Bool("h", false, "Show help")
 
 	flag.Parse()
@@ -38,6 +40,8 @@ func ParseCommand() {
 			return
 		}
 		qr.CreateQR(ssid)
+	case *testFlag:
+		utils.TestConnection()
 	default:
 		fmt.Println("Invalid option. Use -h for help.")
 	}
